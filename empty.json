@@ -1,0 +1,218 @@
+{
+  "responses": {
+    "greetings": [
+      "Hello! How can I help you master JavaScript today?",
+      "Hi there! Ready to tackle some JavaScript challenges?",
+      "Welcome! Let's make JavaScript easier for you. Ask away!"
+    ],
+    "topics": {
+      "overview": {
+        "keywords": [
+          "overview",
+          "what is JavaScript",
+          "features",
+          "client-side",
+          "server-side"
+        ],
+        "response": "JavaScript is a **lightweight**, **interpreted** programming language primarily used to make web pages interactive. It can run on both the **client side** (browser) and **server side** (Node.js).\n\n**Key Features:**\n- **Dynamically typed**\n- **Event-driven**\n- Supports **object-oriented** and **functional programming**\n- **Browser-compatible** and **versatile**\n\n**Where is JavaScript Used?**\n- Web development (frontend and backend)\n- Mobile apps (via frameworks like React Native)\n- Game development\n- Automation and scripting"
+      },
+      "syntax": {
+        "keywords": [
+          "syntax",
+          "basics",
+          "rules",
+          "semicolon",
+          "case sensitivity"
+        ],
+        "response": "JavaScript **syntax** defines how programs are written and understood.\n\n**Key Points:**\n1. **JavaScript is case-sensitive**:\n```javascript\nlet Name = \"John\"; // 'Name' and 'name' are different\n```\n\n2. **Semicolons are optional but recommended**:\n```javascript\nlet x = 10\nlet y = 20; // Prefer this for clarity\n```\n\n3. **Comments**:\nUse `//` for single-line comments and `/* */` for multi-line comments.\n```javascript\n// This is a single-line comment\n/* This is a multi-line comment */\n```"
+      },
+      "variables": {
+        "keywords": ["variable", "let", "const", "var", "scope"],
+        "response": "JavaScript **variables** store data values. You can declare variables using `let`, `const`, or `var`.\n\n**1. Using let:**\n```javascript\nlet name = \"Alice\";\nname = \"Bob\"; // Allowed\n```\n\n**2. Using const:**\n```javascript\nconst pi = 3.14;\npi = 3.15; // Error: Cannot reassign\n```\n\n**Scope:**\n- Variables declared with `let` and `const` are **block-scoped**.\n  ```javascript\n  {\n    let x = 10;\n    console.log(x); // 10\n  }\n  console.log(x); // Error: x is not defined\n  ```\n- Variables declared with `var` are **function-scoped**.\n  ```javascript\n  function example() {\n    var y = 20;\n    console.log(y); // 20\n  }\n  example();\n  console.log(y); // Error: y is not defined\n  ```"
+      },
+      "operators": {
+        "keywords": ["operators", "arithmetic", "logical", "comparison"],
+        "response": "JavaScript provides a range of **operators** for calculations and comparisons.\n\n**Arithmetic Operators:**\n```javascript\n+ (Addition): 2 + 3 // 5\n- (Subtraction): 5 - 2 // 3\n* (Multiplication): 4 * 2 // 8\n/ (Division): 10 / 2 // 5\n% (Modulus): 5 % 2 // 1\n```\n\n**Comparison Operators:**\n```javascript\n== (Equality): \"5\" == 5 // true\n=== (Strict Equality): \"5\" === 5 // false\n!= (Not Equal): 5 != \"5\" // false\n!== (Strict Not Equal): 5 !== \"5\" // true\n```\n\n**Logical Operators:**\n```javascript\n&& (AND): true && false // false\n|| (OR): true || false // true\n! (NOT): !true // false\n```"
+      },
+      "loops": {
+        "keywords": ["loops", "for", "while", "iteration"],
+        "response": "**Loops** help execute repetitive tasks.\n\n**1. For Loop:**\n```javascript\nfor (let i = 0; i < 5; i++) {\n  console.log(i);\n}\n```\n\n**2. While Loop:**\n```javascript\nlet i = 0;\nwhile (i < 5) {\n  console.log(i);\n  i++;\n}\n```\n\n**3. For...of Loop (for arrays):**\n```javascript\nconst arr = [\"a\", \"b\", \"c\"];\nfor (const item of arr) {\n  console.log(item);\n}\n```"
+      },
+      "functions": {
+        "keywords": ["function", "parameters", "return"],
+        "response": "Functions allow you to **reuse code**.\n\n**Function Definition:**\n```javascript\nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\nconsole.log(greet(\"Alice\")); // \"Hello, Alice!\"\n```\n\n**Arrow Functions (ES6):**\n```javascript\nconst add = (a, b) => a + b;\nconsole.log(add(2, 3)); // 5\n```\n\n**Function Expressions:**\n```javascript\nconst multiply = function(a, b) {\n  return a * b;\n};\nconsole.log(multiply(3, 4)); // 12\n```"
+      },
+      "events": {
+        "keywords": ["event", "click", "keydown", "listener"],
+        "response": "JavaScript **events** let you respond to user actions.\n\n**Adding an Event Listener:**\n```javascript\ndocument.querySelector(\"button\").addEventListener(\"click\", () => {\n  console.log(\"Button clicked\");\n});\n```\n\n**Removing an Event Listener:**\n```javascript\nconst handler = () => console.log(\"Button clicked\");\ndocument.querySelector(\"button\").addEventListener(\"click\", handler);\ndocument.querySelector(\"button\").removeEventListener(\"click\", handler);\n```\n\n**Common Events:**\n- `click`\n- `mouseover`\n- `keydown`\n- `submit`\n- `load`"
+      },
+      "objects": {
+        "keywords": ["object", "properties", "methods", "user-defined", "this"],
+        "response": "Objects in JavaScript are **collections of key-value pairs**.\n\n**Object Properties:**\n```javascript\nlet person = { name: \"John\", age: 30 };\nconsole.log(person.name); // \"John\"\n```\n\n**Object Methods:**\n```javascript\nlet person = {\n  name: \"Alice\",\n  greet: function() { return \"Hello, \" + this.name; }\n};\nconsole.log(person.greet()); // \"Hello, Alice\"\n```\n\n**User-Defined Objects:**\nYou can define objects using **object literals** or **constructors**.\n\n**Using Constructors:**\n```javascript\nfunction Person(name, age) {\n  this.name = name;\n  this.age = age;\n}\nconst person = new Person(\"Bob\", 25);\nconsole.log(person.name); // \"Bob\"\n```"
+      },
+      "arrays": {
+        "keywords": ["array", "push", "pop", "map", "filter"],
+        "response": "Arrays are **ordered collections** of values.\n\n**Creating an Array:**\n```javascript\nlet fruits = [\"Apple\", \"Banana\", \"Cherry\"];\n```\n\n**Common Methods:**\n- `push()`: Adds an element to the end.\n  ```javascript\n  fruits.push(\"Date\");\n  ```\n- `pop()`: Removes the last element.\n  ```javascript\n  fruits.pop();\n  ```\n- `map()`: Creates a new array by applying a function.\n  ```javascript\n  let upperFruits = fruits.map(fruit => fruit.toUpperCase());\n  ```\n- `filter()`: Creates a new array with elements that pass a test.\n  ```javascript\n  let longFruits = fruits.filter(fruit => fruit.length > 5);\n  ```\n\n**Accessing Elements:**\n```javascript\nconsole.log(fruits[0]); // \"Apple\"\n```\n\n**Array Length:**\n```javascript\nconsole.log(fruits.length); // 3\n```"
+      },
+      "json": {
+        "keywords": ["JSON", "parse", "stringify", "data", "format"],
+        "response": "**JSON** (JavaScript Object Notation) is a **lightweight data-interchange format**.\n\n**Parsing JSON:**\nConverts a JSON string into a JavaScript object.\n```javascript\nlet jsonString = '{\"name\":\"Alice\",\"age\":30}';\nlet obj = JSON.parse(jsonString);\nconsole.log(obj.name); // \"Alice\"\n```\n\n**Stringifying JSON:**\nConverts a JavaScript object into a JSON string.\n```javascript\nlet obj = { name: \"Bob\", age: 25 };\nlet jsonString = JSON.stringify(obj);\nconsole.log(jsonString); // '{\"name\":\"Bob\",\"age\":25}'\n```\n\n**Common Use Cases:**\n- Data exchange between a client and server.\n- Storing data in `localStorage`.\n\n**Handling JSON Errors:**\nAlways use `try...catch` when parsing JSON to handle invalid JSON strings.\n```javascript\ntry {\n  let obj = JSON.parse(badJsonString);\n} catch (error) {\n  console.error(\"Invalid JSON:\", error);\n}\n```"
+      },
+      "promises": {
+        "keywords": ["promise", "async", "await", "then", "catch"],
+        "response": "**Promises** represent the eventual completion (or failure) of an asynchronous operation.\n\n**Creating a Promise:**\n```javascript\nlet promise = new Promise((resolve, reject) => {\n  // Asynchronous operation\n  if (/* success */) {\n    resolve(\"Success!\");\n  } else {\n    reject(\"Error!\");\n  }\n});\n```\n\n**Consuming a Promise with `then` and `catch`:**\n```javascript\npromise\n  .then(result => console.log(result))\n  .catch(error => console.error(error));\n```\n\n**Using `async` and `await`:**\n```javascript\nasync function fetchData() {\n  try {\n    let result = await promise;\n    console.log(result);\n  } catch (error) {\n    console.error(error);\n  }\n}\nfetchData();\n```\n\n**Promise Chaining:**\n```javascript\npromise\n  .then(result => {\n    console.log(result);\n    return \"Next step\";\n  })\n  .then(next => console.log(next))\n  .catch(error => console.error(error));\n```"
+      },
+      "async_await": {
+        "keywords": ["async", "await", "promise", "asynchronous", "functions"],
+        "response": "`async` and `await` are syntactic sugar over promises, making asynchronous code easier to write and read.\n\n**`async` Function:**\nDeclares a function as asynchronous, which implicitly returns a promise.\n```javascript\nasync function fetchData() {\n  return \"Data fetched\";\n}\nfetchData().then(data => console.log(data)); // \"Data fetched\"\n```\n\n**`await` Keyword:**\nPauses the execution of the async function until the promise is resolved.\n```javascript\nasync function getData() {\n  let data = await fetchData();\n  console.log(data);\n}\ngetData(); // \"Data fetched\"\n```\n\n**Error Handling:**\nUse `try...catch` within async functions.\n```javascript\nasync function getData() {\n  try {\n    let data = await fetchData();\n    console.log(data);\n  } catch (error) {\n    console.error(error);\n  }\n}\ngetData();\n```"
+      },
+      "closures": {
+        "keywords": ["closure", "scope", "function", "lexical environment"],
+        "response": "A **closure** is a feature in JavaScript where an inner function has access to the outer (enclosing) function's variables even after the outer function has returned.\n\n**Example of a Closure:**\n```javascript\nfunction outerFunction(x) {\n  return function innerFunction(y) {\n    return x + y;\n  };\n}\nlet addFive = outerFunction(5);\nconsole.log(addFive(3)); // 8\n```\n\n**Use Cases:**\n- **Data privacy**\n- Implementing **function factories**\n- **Partial application** of functions\n\n**How It Works:**\nClosures capture the variables from their surrounding **lexical environment**, maintaining references to them."
+      },
+      "this_keyword": {
+        "keywords": ["this", "context", "object", "arrow functions"],
+        "response": "The `this` keyword in JavaScript refers to the **context** in which a function is executed.\n\n**In Global Context:**\n```javascript\nconsole.log(this); // In browsers, refers to the window object\n```\n\n**In Object Methods:**\n```javascript\nlet person = {\n  name: \"Alice\",\n  greet: function() {\n    console.log(`Hello, ${this.name}`);\n  }\n};\nperson.greet(); // \"Hello, Alice\"\n```\n\n**In Constructors:**\n```javascript\nfunction Person(name) {\n  this.name = name;\n}\nlet bob = new Person(\"Bob\");\nconsole.log(bob.name); // \"Bob\"\n```\n\n**Arrow Functions:**\nArrow functions do not have their own `this` binding and inherit it from the parent scope.\n```javascript\nlet obj = {\n  name: \"Charlie\",\n  greet: () => {\n    console.log(`Hello, ${this.name}`);\n  }\n};\nobj.greet(); // \"Hello, undefined\" because `this` refers to the global object\n```"
+      },
+      "classes": {
+        "keywords": ["class", "constructor", "inheritance", "extends", "super"],
+        "response": "JavaScript **classes** are syntactical sugar over the existing prototype-based inheritance.\n\n**Defining a Class:**\n```javascript\nclass Person {\n  constructor(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n  greet() {\n    console.log(`Hello, my name is ${this.name}`);\n  }\n}\nlet alice = new Person(\"Alice\", 30);\nalice.greet(); // \"Hello, my name is Alice\"\n```\n\n**Inheritance:**\nUse `extends` to create a subclass.\n```javascript\nclass Employee extends Person {\n  constructor(name, age, job) {\n    super(name, age);\n    this.job = job;\n  }\n  work() {\n    console.log(`${this.name} is working as a ${this.job}`);\n  }\n}\nlet bob = new Employee(\"Bob\", 25, \"Developer\");\nbob.greet(); // \"Hello, my name is Bob\"\nbob.work(); // \"Bob is working as a Developer\"\n```\n\n**Static Methods:**\n```javascript\nclass MathUtil {\n  static add(a, b) {\n    return a + b;\n  }\n}\nconsole.log(MathUtil.add(2, 3)); // 5\n```\n\n**Getters and Setters:**\n```javascript\nclass Rectangle {\n  constructor(width, height) {\n    this.width = width;\n    this.height = height;\n  }\n  get area() {\n    return this.width * this.height;\n  }\n  set area(value) {\n    // Example setter logic\n  }\n}\nlet rect = new Rectangle(5, 10);\nconsole.log(rect.area); // 50\n```"
+      },
+      "error_handling": {
+        "keywords": ["error", "try", "catch", "finally", "throw"],
+        "response": "Error handling in JavaScript is done using `try`, `catch`, `finally`, and `throw` statements.\n\n**Try and Catch:**\n```javascript\ntry {\n  // Code that may throw an error\n  let result = riskyOperation();\n} catch (error) {\n  console.error(\"An error occurred:\", error);\n}\n```\n\n**Finally:**\nThe `finally` block executes after `try` and `catch`, regardless of the outcome.\n```javascript\ntry {\n  // Code that may throw an error\n} catch (error) {\n  // Handle error\n} finally {\n  // Cleanup code\n}\n```\n\n**Throwing Errors:**\nUse `throw` to create custom errors.\n```javascript\nfunction divide(a, b) {\n  if (b === 0) {\n    throw new Error(\"Division by zero is not allowed.\");\n  }\n  return a / b;\n}\ntry {\n  divide(4, 0);\n} catch (error) {\n  console.error(error.message); // \"Division by zero is not allowed.\"\n}\n```\n\n**Custom Error Types:**\nYou can create custom error types by extending the `Error` class.\n```javascript\nclass ValidationError extends Error {\n  constructor(message) {\n    super(message);\n    this.name = \"ValidationError\";\n  }\n}\n```\n"
+      },
+      "dom_manipulation": {
+        "keywords": [
+          "DOM",
+          "document",
+          "querySelector",
+          "addEventListener",
+          "createElement"
+        ],
+        "response": "DOM (**Document Object Model**) manipulation allows you to interact with and modify the HTML and CSS of a webpage.\n\n**Selecting Elements:**\n- `document.getElementById()`\n- `document.querySelector()`\n- `document.querySelectorAll()`\n  ```javascript\n  let element = document.querySelector(\".my-class\");\n  ```\n\n**Modifying Content:**\n- `innerHTML`\n- `textContent`\n  ```javascript\n  element.textContent = \"New Content\";\n  ```\n\n**Changing Styles:**\n```javascript\nelement.style.color = \"blue\";\nelement.classList.add(\"active\");\n```\n\n**Adding Event Listeners:**\n```javascript\nelement.addEventListener(\"click\", () => {\n  alert(\"Element clicked!\");\n});\n```\n\n**Creating and Appending Elements:**\n```javascript\nlet newDiv = document.createElement(\"div\");\nnewDiv.textContent = \"Hello World\";\ndocument.body.appendChild(newDiv);\n```\n\n**Removing Elements:**\n```javascript\nlet child = document.querySelector(\".child\");\nchild.remove();\n```\n"
+      },
+      "fetch_api": {
+        "keywords": ["fetch", "API", "HTTP", "request", "response"],
+        "response": "The `**fetch**` API is used to make **network requests** in JavaScript.\n\n**Basic Usage:**\n```javascript\nfetch('https://api.example.com/data')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error('Error:', error));\n```\n\n**Using async/await:**\n```javascript\nasync function getData() {\n  try {\n    let response = await fetch('https://api.example.com/data');\n    if (!response.ok) {\n      throw new Error('Network response was not ok');\n    }\n    let data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error('Fetch error:', error);\n  }\n}\ngetData();\n```\n\n**Sending Data with POST:**\n```javascript\nfetch('https://api.example.com/data', {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify({ name: \"Alice\", age: 30 })\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));\n```\n\n**Handling Different Response Types:**\n- `.json()`: Parses the response as JSON.\n- `.text()`: Parses the response as plain text.\n- `.blob()`: Parses the response as a Blob.\n- `.arrayBuffer()`: Parses the response as an ArrayBuffer.\n"
+      },
+      "local_storage": {
+        "keywords": [
+          "localStorage",
+          "sessionStorage",
+          "storage",
+          "setItem",
+          "getItem"
+        ],
+        "response": "Web **Storage API** allows you to store data in the browser.\n\n**localStorage:**\n- Data persists even after the browser is closed.\n- Storage limit is around 5MB.\n\n**sessionStorage:**\n- Data persists only for the session (until the browser/tab is closed).\n\n**Using localStorage:**\n```javascript\n// Set item\nlocalStorage.setItem('username', 'Alice');\n\n// Get item\nlet username = localStorage.getItem('username');\nconsole.log(username); // \"Alice\"\n\n// Remove item\nlocalStorage.removeItem('username');\n\n// Clear all items\nlocalStorage.clear();\n```\n\n**Using sessionStorage:**\n```javascript\n// Set item\nsessionStorage.setItem('sessionID', '12345');\n\n// Get item\nlet sessionID = sessionStorage.getItem('sessionID');\nconsole.log(sessionID); // \"12345\"\n```\n\n**Storage Events:**\nListen for changes in storage.\n```javascript\nwindow.addEventListener('storage', (event) => {\n  console.log('Storage changed:', event);\n});\n```"
+      },
+      "regex": {
+        "keywords": ["regex", "regular expression", "pattern", "test", "match"],
+        "response": "**Regular expressions (regex)** are patterns used to match character combinations in strings.\n\n**Creating a Regex:**\n```javascript\nlet regex = /\\d{3}-\\d{2}-\\d{4}/; // Matches patterns like 123-45-6789\n```\nOr using the constructor:\n```javascript\nlet regex = new RegExp(\"\\\\d{3}-\\\\d{2}-\\\\d{4}\");\n```\n\n**Testing a String:**\n```javascript\nlet str = \"My SSN is 123-45-6789\";\nconsole.log(regex.test(str)); // true\n```\n\n**Matching Patterns:**\n```javascript\nlet matches = str.match(regex);\nconsole.log(matches[0]); // \"123-45-6789\"\n```\n\n**Common Methods:**\n- `test()`: Checks if the pattern exists in the string.\n- `exec()`: Executes the search for a match and returns the result.\n- `match()`: Returns an array of matches.\n- `replace()`: Replaces matched patterns.\n- `split()`: Splits the string by the pattern.\n\n**Flags:**\n- `g`: Global search.\n- `i`: Case-insensitive.\n- `m`: Multi-line search.\n\n**Example with Flags:**\n```javascript\nlet regex = /hello/i;\nconsole.log(regex.test(\"Hello World\")); // true\n```"
+      },
+      "timers": {
+        "keywords": [
+          "timers",
+          "setTimeout",
+          "setInterval",
+          "clearTimeout",
+          "clearInterval"
+        ],
+        "response": "JavaScript **timers** allow you to execute code after a delay or repeatedly at intervals.\n\n**`setTimeout`:** Executes a function after a specified delay.\n```javascript\nsetTimeout(() => {\n  console.log(\"This runs after 2 seconds\");\n}, 2000); // 2000 milliseconds = 2 seconds\n```\n\n**`setInterval`:** Executes a function repeatedly at specified intervals.\n```javascript\nlet intervalID = setInterval(() => {\n  console.log(\"This runs every 3 seconds\");\n}, 3000);\n```\n\n**Clearing Timers:**\nUse `clearTimeout` or `clearInterval` with the timer ID.\n```javascript\nlet timeoutID = setTimeout(() => {\n  console.log(\"This won't run\");\n}, 5000);\nclearTimeout(timeoutID);\n\nlet intervalID = setInterval(() => {\n  console.log(\"This won't run either\");\n}, 5000);\nclearInterval(intervalID);\n```\n\n**Using Named Functions:**\n```javascript\nfunction sayHello() {\n  console.log(\"Hello!\");\n}\nsetTimeout(sayHello, 1000); // Runs after 1 second\n```"
+      },
+      "spread_operator": {
+        "keywords": ["spread operator", "...", "arrays", "objects", "syntax"],
+        "response": "The **spread operator** (`...`) allows an **iterable** such as an array or object to be **expanded** in places where multiple elements or key-value pairs are expected.\n\n**In Arrays:**\n- **Copying an Array:**\n  ```javascript\n  let arr1 = [1, 2, 3];\n  let arr2 = [...arr1];\n  console.log(arr2); // [1, 2, 3]\n  ```\n- **Combining Arrays:**\n  ```javascript\n  let arr3 = [4, 5, 6];\n  let combined = [...arr1, ...arr3];\n  console.log(combined); // [1, 2, 3, 4, 5, 6]\n  ```\n- **Adding Elements:**\n  ```javascript\n  let extended = [...arr1, 4, 5];\n  console.log(extended); // [1, 2, 3, 4, 5]\n  ```\n\n**In Objects:**\n- **Copying an Object:**\n  ```javascript\n  let obj1 = { a: 1, b: 2 };\n  let obj2 = { ...obj1 };\n  console.log(obj2); // { a: 1, b: 2 }\n  ```\n- **Merging Objects:**\n  ```javascript\n  let obj3 = { c: 3 };\n  let merged = { ...obj1, ...obj3 };\n  console.log(merged); // { a: 1, b: 2, c: 3 }\n  ```\n- **Overriding Properties:**\n  ```javascript\n  let obj4 = { b: 20, d: 4 };\n  let updated = { ...obj1, ...obj4 };\n  console.log(updated); // { a: 1, b: 20, d: 4 }\n  ```\n\n**In Function Arguments:**\n```javascript\nfunction sum(a, b, c) {\n  return a + b + c;\n}\nlet numbers = [1, 2, 3];\nconsole.log(sum(...numbers)); // 6\n```\n"
+      },
+      "destructuring": {
+        "keywords": [
+          "destructuring",
+          "arrays",
+          "objects",
+          "assignment",
+          "syntax"
+        ],
+        "response": "**Destructuring** allows you to **unpack** values from arrays or **properties** from objects into distinct variables.\n\n**Array Destructuring:**\n```javascript\nlet [a, b, c] = [1, 2, 3];\nconsole.log(a); // 1\nconsole.log(b); // 2\nconsole.log(c); // 3\n```\n\n**Object Destructuring:**\n```javascript\nlet { name, age } = { name: \"Alice\", age: 30 };\nconsole.log(name); // \"Alice\"\nconsole.log(age); // 30\n```\n\n**Default Values:**\n```javascript\nlet [x = 10, y = 20] = [5];\nconsole.log(x); // 5\nconsole.log(y); // 20\n```\n\n**Renaming Variables:**\n```javascript\nlet { name: userName, age: userAge } = { name: \"Bob\", age: 25 };\nconsole.log(userName); // \"Bob\"\nconsole.log(userAge); // 25\n```\n\n**Nested Destructuring:**\n```javascript\nlet user = {\n  id: 1,\n  info: {\n    firstName: \"Charlie\",\n    lastName: \"Doe\"\n  }\n};\nlet { info: { firstName, lastName } } = user;\nconsole.log(firstName); // \"Charlie\"\nconsole.log(lastName); // \"Doe\"\n```\n\n**Function Parameters:**\n```javascript\nfunction display({ name, age }) {\n  console.log(`Name: ${name}, Age: ${age}`);\n}\ndisplay({ name: \"Dana\", age: 28 }); // \"Name: Dana, Age: 28\"\n```\n"
+      },
+      "higher_order_functions": {
+        "keywords": [
+          "higher-order functions",
+          "map",
+          "filter",
+          "reduce",
+          "forEach"
+        ],
+        "response": "**Higher-order functions** are functions that operate on other functions, either by taking them as arguments or by returning them.\n\n**Common Higher-Order Functions:**\n\n**1. `map()`:**\nCreates a new array by applying a function to each element.\n```javascript\nlet numbers = [1, 2, 3];\nlet doubled = numbers.map(num => num * 2);\nconsole.log(doubled); // [2, 4, 6]\n```\n\n**2. `filter()`:**\nCreates a new array with elements that pass a test.\n```javascript\nlet numbers = [1, 2, 3, 4, 5];\nlet even = numbers.filter(num => num % 2 === 0);\nconsole.log(even); // [2, 4]\n```\n\n**3. `reduce()`:**\nApplies a function against an accumulator and each element to reduce the array to a single value.\n```javascript\nlet numbers = [1, 2, 3, 4];\nlet sum = numbers.reduce((acc, num) => acc + num, 0);\nconsole.log(sum); // 10\n```\n\n**4. `forEach()`:**\nExecutes a provided function once for each array element.\n```javascript\nlet fruits = [\"Apple\", \"Banana\", \"Cherry\"];\nfruits.forEach(fruit => console.log(fruit));\n// Outputs:\n// Apple\n// Banana\n// Cherry\n```\n\n**Advantages:**\n- **Code Reusability**\n- **Functional Programming Paradigm**\n- **Improved Readability**\n\n**Example of Combining HOFs:**\n```javascript\nlet numbers = [1, 2, 3, 4, 5];\nlet processed = numbers\n  .filter(num => num % 2 !== 0)\n  .map(num => num * 2)\n  .reduce((acc, num) => acc + num, 0);\nconsole.log(processed); // 18\n```\n"
+      },
+      "es6_features": {
+        "keywords": [
+          "ES6",
+          "let",
+          "const",
+          "arrow functions",
+          "template literals"
+        ],
+        "response": "ES6 (**ECMAScript 6**) introduced several new features to JavaScript, enhancing its capabilities and syntax.\n\n**1. `let` and `const`:**\n- `let` allows block-scoped variable declarations.\n- `const` declares block-scoped constants.\n```javascript\nlet x = 10;\nconst y = 20;\n```\n\n**2. Arrow Functions:**\nShorter syntax for writing functions and lexical `this` binding.\n```javascript\nconst add = (a, b) => a + b;\nconsole.log(add(2, 3)); // 5\n```\n\n**3. Template Literals:**\nUse backticks (`) for string interpolation and multi-line strings.\n```javascript\nlet name = \"Alice\";\nlet greeting = `Hello, ${name}!`;\nconsole.log(greeting); // \"Hello, Alice!\"\n```\n\n**4. Destructuring:**\nUnpack values from arrays or properties from objects.\n```javascript\nlet [a, b] = [1, 2];\nlet { name, age } = { name: \"Bob\", age: 25 };\n```\n\n**5. Default Parameters:**\nAssign default values to function parameters.\n```javascript\nfunction greet(name = \"Guest\") {\n  console.log(`Hello, ${name}!`);\n}\ngreet(); // \"Hello, Guest!\"\ngreet(\"Charlie\"); // \"Hello, Charlie!\"\n```\n\n**6. Rest and Spread Operators:**\n- **Rest (`...`):** Collects multiple elements into an array.\n- **Spread (`...`):** Expands an array or object.\n```javascript\n// Rest\nfunction sum(...numbers) {\n  return numbers.reduce((a, b) => a + b, 0);\n}\nconsole.log(sum(1, 2, 3)); // 6\n\n// Spread\nlet arr = [1, 2, 3];\nlet newArr = [...arr, 4, 5];\nconsole.log(newArr); // [1, 2, 3, 4, 5]\n```\n\n**7. Classes:**\nSyntactical sugar over prototype-based inheritance.\n```javascript\nclass Person {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    console.log(`Hello, ${this.name}!`);\n  }\n}\nlet alice = new Person(\"Alice\");\nalice.greet(); // \"Hello, Alice!\"\n```\n\n**8. Modules:**\nUse `import` and `export` to manage dependencies.\n```javascript\n// module.js\nexport const pi = 3.14;\nexport function add(a, b) { return a + b; }\n\n// main.js\nimport { pi, add } from './module.js';\nconsole.log(pi); // 3.14\nconsole.log(add(2, 3)); // 5\n```\n"
+      },
+      "modules": {
+        "keywords": [
+          "modules",
+          "import",
+          "export",
+          "default export",
+          "named export"
+        ],
+        "response": "JavaScript **modules** allow you to organize and reuse code by splitting it into separate files.\n\n**Exporting Modules:**\n\n**1. Named Exports:**\nExport multiple bindings from a module.\n```javascript\n// math.js\nexport const pi = 3.14;\nexport function add(a, b) {\n  return a + b;\n}\n```\n\n**2. Default Exports:**\nExport a single default binding from a module.\n```javascript\n// logger.js\nexport default function log(message) {\n  console.log(message);\n}\n```\n\n**Importing Modules:**\n\n**1. Importing Named Exports:**\n```javascript\n// main.js\nimport { pi, add } from './math.js';\nconsole.log(pi); // 3.14\nconsole.log(add(2, 3)); // 5\n```\n\n**2. Importing Default Exports:**\n```javascript\n// main.js\nimport log from './logger.js';\nlog(\"Hello, World!\"); // \"Hello, World!\"\n```\n\n**3. Import All as an Object:**\n```javascript\n// main.js\nimport * as math from './math.js';\nconsole.log(math.pi); // 3.14\nconsole.log(math.add(2, 3)); // 5\n```\n\n**4. Renaming Imports:**\n```javascript\n// main.js\nimport { add as sum } from './math.js';\nconsole.log(sum(4, 5)); // 9\n```\n\n**Best Practices:**\n- Use named exports for multiple bindings.\n- Use default exports for single primary bindings.\n- Keep module files focused and concise.\n\n**Note:**\nEnsure that your environment supports ES6 modules or use a bundler like **Webpack** or **Parcel** for compatibility.\n"
+      },
+      "prototype_inheritance": {
+        "keywords": [
+          "prototype",
+          "inheritance",
+          "prototype chain",
+          "Object.create"
+        ],
+        "response": "JavaScript uses **prototype-based inheritance**, where objects inherit properties and methods from a **prototype**.\n\n**Prototype Chain:**\nEach object has an internal link to another object called its **prototype**. This forms a **prototype chain**.\n\n**Example:**\n```javascript\nfunction Person(name) {\n  this.name = name;\n}\nPerson.prototype.greet = function() {\n  console.log(`Hello, ${this.name}!`);\n};\n\nlet alice = new Person(\"Alice\");\nalice.greet(); // \"Hello, Alice!\"\n```\n\n**Using `Object.create`:**\nCreates a new object with the specified prototype.\n```javascript\nlet proto = {\n  greet: function() {\n    console.log(`Hello, ${this.name}!`);\n  }\n};\n\nlet bob = Object.create(proto);\nbob.name = \"Bob\";\nbob.greet(); // \"Hello, Bob!\"\n```\n\n**Inheritance with Constructors:**\n```javascript\nfunction Employee(name, job) {\n  Person.call(this, name);\n  this.job = job;\n}\nEmployee.prototype = Object.create(Person.prototype);\nEmployee.prototype.constructor = Employee;\n\nEmployee.prototype.work = function() {\n  console.log(`${this.name} is working as a ${this.job}`);\n};\n\nlet charlie = new Employee(\"Charlie\", \"Developer\");\ncharlie.greet(); // \"Hello, Charlie!\"\ncharlie.work(); // \"Charlie is working as a Developer\"\n```\n\n**Advantages of Prototype Inheritance:**\n- **Memory Efficiency:** Shared methods are stored once in the prototype.\n- **Dynamic Nature:** Changes to the prototype are reflected in all inheriting objects.\n\n**Disadvantages:**\n- Can lead to **complex chains** that are hard to debug.\n- Potential for **unexpected behavior** if prototypes are modified indiscriminately.\n"
+      },
+      "event_loop": {
+        "keywords": [
+          "event loop",
+          "call stack",
+          "task queue",
+          "microtasks",
+          "asynchronous"
+        ],
+        "response": "The **event loop** is a fundamental concept in JavaScript that handles **asynchronous operations**.\n\n**Components:**\n1. **Call Stack:**\n   - Where your code is executed.\n   - Follows a **Last-In-First-Out (LIFO)** order.\n\n2. **Web APIs:**\n   - Browser-provided APIs like `setTimeout`, `fetch`, DOM events.\n   - Handle asynchronous tasks outside the call stack.\n\n3. **Task Queue (Callback Queue):**\n   - Holds **callback functions** ready to be executed.\n   - Operates on a **First-In-First-Out (FIFO)** basis.\n\n4. **Microtask Queue:**\n   - Holds **microtasks** like promises (`.then`, `.catch`).\n   - Has higher priority than the task queue.\n\n**How It Works:**\n1. **Synchronous Code:**\n   - Executed directly on the call stack.\n2. **Asynchronous Code:**\n   - Operations like `setTimeout` and `fetch` are handled by Web APIs.\n   - Once completed, their callbacks are placed in the **task queue** or **microtask queue**.\n3. **Event Loop:**\n   - Continuously checks the call stack.\n   - If the call stack is empty, it first processes the **microtask queue**, then the **task queue**.\n\n**Example:**\n```javascript\nconsole.log('Start');\n\nsetTimeout(() => {\n  console.log('Timeout');\n}, 0);\n\nPromise.resolve().then(() => {\n  console.log('Promise');\n});\n\nconsole.log('End');\n```\n\n**Output:**\n```\nStart\nEnd\nPromise\nTimeout\n```\n\n**Explanation:**\n- `'Start'` and `'End'` are logged synchronously.\n- The `setTimeout` callback is placed in the **task queue**.\n- The promise callback is placed in the **microtask queue**.\n- After the call stack is empty, the event loop processes the **microtask queue** first (`'Promise'`), then the **task queue** (`'Timeout'`).\n\n**Key Points:**\n- **Microtasks** have higher priority than **tasks**.\n- The event loop ensures non-blocking execution by managing synchronous and asynchronous code efficiently.\n"
+      },
+      "functional_programming": {
+        "keywords": [
+          "functional programming",
+          "pure functions",
+          "immutability",
+          "higher-order functions",
+          "map filter reduce"
+        ],
+        "response": "**Functional Programming** is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.\n\n**Key Concepts:**\n\n**1. Pure Functions:**\nFunctions that have no side effects and return the same output for the same inputs.\n```javascript\nfunction add(a, b) {\n  return a + b;\n}\n```\n\n**2. Immutability:**\nData cannot be changed after it's created. Instead, new data structures are created.\n```javascript\nconst original = [1, 2, 3];\nconst newArray = [...original, 4];\n```\n\n**3. Higher-Order Functions:**\nFunctions that take other functions as arguments or return them.\n```javascript\nconst greet = name => `Hello, ${name}!`;\nconst processUser = (name, func) => console.log(func(name));\nprocessUser(\"Alice\", greet); // \"Hello, Alice!\"\n```\n\n**4. First-Class Functions:**\nFunctions are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments, and returned from other functions.\n\n**5. Function Composition:**\nCombining multiple functions to produce a new function.\n```javascript\nconst compose = (f, g) => x => f(g(x));\nconst add1 = x => x + 1;\nconst double = x => x * 2;\nconst add1ThenDouble = compose(double, add1);\nconsole.log(add1ThenDouble(5)); // 12\n```\n\n**6. Recursion:**\nFunctions that call themselves to solve smaller instances of the same problem.\n```javascript\nfunction factorial(n) {\n  if (n === 0) return 1;\n  return n * factorial(n - 1);\n}\nconsole.log(factorial(5)); // 120\n```\n\n**Advantages:**\n- **Predictable Code:** Pure functions are easier to test and debug.\n- **Reusability:** Higher-order functions promote code reuse.\n- **Maintainability:** Immutable data reduces unintended side effects.\n\n**Functional Programming with Arrays:**\nUsing methods like `map`, `filter`, and `reduce` to manipulate data.\n```javascript\nlet numbers = [1, 2, 3, 4, 5];\nlet doubled = numbers.map(num => num * 2);\nlet even = numbers.filter(num => num % 2 === 0);\nlet sum = numbers.reduce((acc, num) => acc + num, 0);\nconsole.log(doubled); // [2, 4, 6, 8, 10]\nconsole.log(even); // [2, 4]\nconsole.log(sum); // 15\n```\n"
+      },
+      "memory_management": {
+        "keywords": [
+          "memory management",
+          "garbage collection",
+          "memory leaks",
+          "heap",
+          "stack"
+        ],
+        "response": "JavaScript **memory management** is handled automatically through **garbage collection**, which frees up memory by removing objects that are no longer referenced.\n\n**Key Concepts:**\n\n**1. Call Stack and Heap:**\n- **Call Stack:** Manages function invocations and their execution context.\n- **Heap:** Stores objects and variables that are dynamically allocated.\n\n**2. Garbage Collection:**\nThe process of automatically freeing memory by removing objects that are no longer reachable in the code.\n\n**3. Reference Counting:**\nA technique where each object has a count of references pointing to it. When the count reaches zero, the object is eligible for garbage collection.\n\n**4. Mark-and-Sweep:**\nA common garbage collection algorithm that marks reachable objects and sweeps away the unmarked ones.\n\n**Preventing Memory Leaks:**\nMemory leaks occur when memory is not released even though it's no longer needed.\n\n**Common Causes:**\n- **Global Variables:** Unintentionally creating global variables.\n  ```javascript\n  function leak() {\n    leakedVar = \"This is a leak\"; // Missing 'let', 'const', or 'var'\n  }\n  leak();\n  ```\n- **Closures Holding References:** Closures that hold references to large objects.\n  ```javascript\n  function createClosure() {\n    let largeData = new Array(1000).fill('data');\n    return function() {\n      console.log(largeData[0]);\n    };\n  }\n  let closure = createClosure();\n  // 'largeData' remains in memory as long as 'closure' exists\n  ```\n- **Event Listeners Not Removed:** Adding event listeners without removing them.\n  ```javascript\n  function addListener() {\n    let element = document.getElementById('myElement');\n    element.addEventListener('click', () => {\n      console.log('Clicked');\n    });\n    // If 'element' is removed from DOM without removing listener, memory leaks can occur\n  }\n  addListener();\n  ```\n\n**Best Practices:**\n- **Use `let` and `const`** to limit variable scope.\n- **Avoid Unnecessary Global Variables**.\n- **Remove Event Listeners** when they're no longer needed.\n- **Be Cautious with Closures** to prevent retaining large objects unnecessarily.\n- **Use Memory Profiling Tools** available in browsers to detect and fix memory leaks.\n"
+      },
+      "performance_optimization": {
+        "keywords": [
+          "performance",
+          "optimization",
+          "debouncing",
+          "throttling",
+          "memoization"
+        ],
+        "response": "JavaScript **performance optimization** involves techniques to make code run faster and more efficiently.\n\n**Key Techniques:**\n\n**1. Debouncing:**\nEnsures that a function is only executed **once** after a specified delay, regardless of how many times it's triggered.\n```javascript\nfunction debounce(func, delay) {\n  let timeoutId;\n  return function(...args) {\n    clearTimeout(timeoutId);\n    timeoutId = setTimeout(() => func.apply(this, args), delay);\n  };\n}\n\nconst handleResize = debounce(() => {\n  console.log('Window resized');\n}, 300);\nwindow.addEventListener('resize', handleResize);\n```\n\n**2. Throttling:**\nEnsures that a function is executed at most **once** in a specified time period, regardless of how many times it's triggered.\n```javascript\nfunction throttle(func, limit) {\n  let lastFunc;\n  let lastRan;\n  return function(...args) {\n    const context = this;\n    if (!lastRan) {\n      func.apply(context, args);\n      lastRan = Date.now();\n    } else {\n      clearTimeout(lastFunc);\n      lastFunc = setTimeout(function() {\n        if ((Date.now() - lastRan) >= limit) {\n          func.apply(context, args);\n          lastRan = Date.now();\n        }\n      }, limit - (Date.now() - lastRan));\n    }\n  };\n}\n\nconst handleScroll = throttle(() => {\n  console.log('Scrolled');\n}, 200);\nwindow.addEventListener('scroll', handleScroll);\n```\n\n**3. Memoization:**\nCaches the results of function calls to avoid redundant computations.\n```javascript\nfunction memoize(fn) {\n  const cache = {};\n  return function(...args) {\n    const key = JSON.stringify(args);\n    if (cache[key]) {\n      return cache[key];\n    }\n    const result = fn.apply(this, args);\n    cache[key] = result;\n    return result;\n  };\n}\n\nconst factorial = memoize(function(n) {\n  return n === 0 ? 1 : n * factorial(n - 1);\n});\nconsole.log(factorial(5)); // 120\n```\n\n**4. Efficient DOM Manipulation:**\n- **Batch DOM Updates:** Minimize reflows and repaints by batching DOM changes.\n- **Use Document Fragments:** Modify elements in memory before appending them to the DOM.\n\n**5. Code Splitting and Lazy Loading:**\nLoad only the necessary code to improve initial load times.\n\n**6. Avoid Memory Leaks:**\nEnsure that objects are garbage collected by removing references when they're no longer needed.\n\n**7. Optimize Loops:**\n- **Use Efficient Loop Constructs:** Prefer `for` loops over `for...in` or `for...of` for better performance in some cases.\n- **Cache Loop Length:** Store the length of the array outside the loop to avoid recalculating it on each iteration.\n  ```javascript\n  let arr = [1, 2, 3, 4, 5];\n  for (let i = 0, len = arr.length; i < len; i++) {\n    console.log(arr[i]);\n  }\n  ```\n\n**8. Use Web Workers:**\nOffload heavy computations to Web Workers to prevent blocking the main thread.\n\n**Tools for Optimization:**\n- **Chrome DevTools Performance Panel**\n- **Lighthouse**\n- **Webpack Bundle Analyzer**\n"
+      }
+    }
+  }
+}

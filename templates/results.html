@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Maps Scraper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    {% block content %}
+    <h1 class="text-3xl font-bold mb-6 text-center">
+      Results for "{{ search_term }}"
+    </h1>
+    <div
+      id="results-container"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
+      {% for result in results[:10] %}
+      <div
+        class="bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
+      >
+        <div class="p-4">
+          <h2 class="text-xl font-semibold mb-2 text-gray-800">
+            {{ result.name }}
+          </h2>
+          <p class="mb-1 text-gray-600">
+            <strong>Address:</strong> {{ result.address }}
+          </p>
+          <p class="mb-1 text-gray-600">
+            <strong>Website:</strong>
+            <a href="{{ result.website }}" class="text-blue-500 hover:underline"
+              >{{ result.website }}</a
+            >
+          </p>
+          <p class="mb-1 text-gray-600">
+            <strong>Phone:</strong> {{ result.phone }}
+          </p>
+          <p class="mb-1 text-gray-600">
+            <strong>Reviews:</strong> {{ result.reviews }}
+          </p>
+          <div class="flex items-center">
+            <strong class="text-gray-600 mr-2">Rating:</strong>
+            <div class="flex items-center">
+              {% for i in range(5) %} {% if i < result.rating|int %}
+              <svg
+                class="w-5 h-5 text-yellow-400 fill-current"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+              {% else %}
+              <svg
+                class="w-5 h-5 text-gray-300 fill-current"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+              {% endif %} {% endfor %}
+              <span class="ml-2 text-gray-600">{{ result.rating }}/5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="mt-8 flex justify-center">
+      <button
+        id="load-more"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+      >
+        Load More
+      </button>
+    </div>
+    {% endblock %} {% block scripts %}
+    <script>
+      let currentPage = 1;
+      const loadMoreButton = document.getElementById("load-more");
+      const resultsContainer = document.getElementById("results-container");
+
+      loadMoreButton.addEventListener("click", () => {
+        currentPage++;
+        axios
+          .get(
+            `{{ url_for('search.get_page', page=0) }}`.replace(
+              "0",
+              currentPage
+            ) + `?search_term={{ search_term }}&limit={{ limit }}`
+          )
+          .then((response) => {
+            const { results, total_pages } = response.data;
+            results.forEach((result) => {
+              const resultElement = document.createElement("div");
+              resultElement.className =
+                "bg-white rounded-lg shadow-md overflow-hidden transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg";
+              resultElement.innerHTML = `
+                        <div class="p-4">
+                            <h2 class="text-xl font-semibold mb-2 text-gray-800">${
+                              result.name
+                            }</h2>
+                            <p class="mb-1 text-gray-600"><strong>Address:</strong> ${
+                              result.address
+                            }</p>
+                            <p class="mb-1 text-gray-600"><strong>Website:</strong> <a href="${
+                              result.website
+                            }" class="text-blue-500 hover:underline">${
+                result.website
+              }</a></p>
+                            <p class="mb-1 text-gray-600"><strong>Phone:</strong> ${
+                              result.phone
+                            }</p>
+                            <p class="mb-1 text-gray-600"><strong>Reviews:</strong> ${
+                              result.reviews
+                            }</p>
+                            <div class="flex items-center">
+                                <strong class="text-gray-600 mr-2">Rating:</strong>
+                                <div class="flex items-center">
+                                    ${Array(5)
+                                      .fill()
+                                      .map(
+                                        (_, i) => `
+                                        <svg class="w-5 h-5 ${
+                                          i < Math.floor(result.rating)
+                                            ? "text-yellow-400"
+                                            : "text-gray-300"
+                                        } fill-current" viewBox="0 0 24 24">
+                                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                        </svg>
+                                    `
+                                      )
+                                      .join("")}
+                                    <span class="ml-2 text-gray-600">${
+                                      result.rating
+                                    }/5</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+              resultsContainer.appendChild(resultElement);
+            });
+
+            if (currentPage >= total_pages) {
+              loadMoreButton.style.display = "none";
+            }
+          })
+          .catch((error) => console.error("Error:", error));
+      });
+    </script>
+    {% endblock %}
+  </body>
+</html>

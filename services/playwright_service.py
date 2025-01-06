@@ -6,14 +6,15 @@ def scrape_and_save_csv(business_name, limit):
     results = []
 
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        # Launch browser in view mode (headless=False)
+        browser = p.chromium.launch(headless=False)  # Open browser with UI
         page = browser.new_page()
         
         # Navigate to Google Maps
         page.goto("https://www.google.com/maps")
         page.fill("input[aria-label='Search Google Maps']", business_name)
         page.keyboard.press("Enter")
-        page.wait_for_timeout(5000)  # Adjust based on internet speed
+        page.wait_for_timeout(5000)  # Wait for search results to load
 
         # Scrape results
         for i in range(limit):
@@ -28,8 +29,9 @@ def scrape_and_save_csv(business_name, limit):
                     "address": address,
                     "phone": phone
                 })
-            except Exception:
+            except Exception as e:
                 # Skip if there's an error (e.g., missing element)
+                print(f"Error scraping item {i + 1}: {e}")
                 continue
 
         browser.close()

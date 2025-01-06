@@ -1,14 +1,15 @@
-from flask import Flask, render_template
-from blueprints.scraping import scraping_bp
+from flask import Flask
+from blueprints.main import main_bp
+from blueprints.search import search_bp
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+    
+    app.register_blueprint(main_bp)
+    app.register_blueprint(search_bp)
+    
+    return app
 
-# Register the scraping blueprint
-app.register_blueprint(scraping_bp)
-
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-if __name__ == "__main__":
+if __name__ == '__main__':
+    app = create_app()
     app.run(debug=True)

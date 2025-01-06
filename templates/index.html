@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Scraper</title>
+  <title>Google Maps Scraper</title>
 </head>
 <body>
-  <h1>Business Scraper</h1>
+  <h1>Google Maps Scraper</h1>
   <form action="/scrape" method="POST">
     <label for="name">Business Name:</label><br>
     <input type="text" id="name" name="name" placeholder="e.g., Coffee Shop" required><br><br>
     
-    <label for="limit">Search Limit:</label><br>
-    <input type="number" id="limit" name="limit" placeholder="e.g., 10" required><br><br>
+    <label for="limit">Search Limit (Optional):</label><br>
+    <input type="number" id="limit" name="limit" placeholder="e.g., 10"><br><br>
     
     <button type="submit">Scrape</button>
   </form>

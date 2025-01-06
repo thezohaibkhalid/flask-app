@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-from utils.data_processing import process_raw_data
+from helper.data_processing import process_raw_data
 import pandas as pd
 l1=[]
 l2=[]
@@ -31,7 +31,8 @@ def extract_data(xpath, data_list, page):
 def scrape_google_maps(search_term, limit): 
     total=limit   
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        # browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(executable_path='C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe', headless=False)
         page = browser.new_page()
 
         page.goto("https://www.google.com/maps/@32.9817464,70.1930781,3.67z?", timeout=60000)
@@ -213,21 +214,6 @@ def scrape_google_maps(search_term, limit):
             if df[column].nunique() == 1:
                 df.drop(column, axis=1, inplace=True)
         df.to_csv(r'result.csv', index = False)
+        return render_template('index.html', csv_available=True)
         browser.close()
         print(df.head())
-
-        raw_data = [
-            {"name": f"Business {i}", "address": f"Address {i}", "website": f"http://website{i}.com", 
-             "phone": f"123-456-{i:04d}", "reviews": i*10, "rating": round(i/2, 1)} 
-            for i in range(1, limit+1)
-        ]
-
-        df = pd.DataFrame(list(zip(names_list, website_list,intro_list,phones_list,address_list,reviews_c_list,reviews_a_list,store_s_list,in_store_list,store_del_list,place_t_list,open_list)), columns =['Names','Website','Introduction','Phone Number','Address','Review Count','Average Review Count','Store Shopping','In Store Pickup','Delivery','Type','Opens At'])
-        for column in df.columns:
-            if df[column].nunique() == 1:
-                df.drop(column, axis=1, inplace=True)
-        df.to_csv(r'result.csv', index = False)
-        browser.close()
-        print(df.head())
-        return process_raw_data(raw_data)
-        

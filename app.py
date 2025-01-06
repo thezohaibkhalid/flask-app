@@ -2,6 +2,7 @@ from flask import Flask
 from blueprints.main import main_bp
 from blueprints.search import search_bp
 
+
 def create_app():
     app = Flask(__name__)
     
